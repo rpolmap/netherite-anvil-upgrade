@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "id": "netherite_anvil_upgrade",
+  "version": "${version}",
+  "name": "Netherite Anvil Upgrade",
+  "description": "Combine a Netherite tool/armor (left) with a matching Diamond one (right) in an anvil. Server-side only.",
+  "authors": ["You"],
+  "license": "MIT",
+  "environment": "*",
+  "mixins": ["netherite_anvil_upgrade.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": "~26.2",
+    "java": ">=25"
+  }
+}
