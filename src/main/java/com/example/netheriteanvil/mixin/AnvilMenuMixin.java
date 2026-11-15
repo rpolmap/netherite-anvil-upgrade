@@ -19,7 +19,6 @@ public abstract class AnvilMenuMixin {
     @Shadow @Final private DataSlot cost;
     @Shadow private int repairItemCountCost;
     @Shadow private String itemName;
-    @Shadow @Final protected Player player;
 
     @Inject(method = "createResult", at = @At("HEAD"), cancellable = true)
     private void netheriteUpgrade$createResult(CallbackInfo ci) {
@@ -32,8 +31,10 @@ public abstract class AnvilMenuMixin {
             return;
         }
 
+        Player player = ((ItemCombinerMenuAccessor) (Object) this).netheriteUpgrade$getPlayer();
+
         AnvilUpgradeLogic.Result result = AnvilUpgradeLogic.combine(
-                left, right, this.itemName, this.player.hasInfiniteMaterials());
+                left, right, this.itemName, player.hasInfiniteMaterials());
 
         if (result == null) {
             menu.getSlot(2).set(ItemStack.EMPTY);
